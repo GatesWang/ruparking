@@ -3,29 +3,38 @@
  */
 import React from 'react';
 import {Text, View, AppRegistry} from 'react-native';
-import DropDown from './components/DropDown';
+import {DropDown, List} from './src/components/common';
+import { permitTypes, campuses } from './src/Global';
 
 const App = () => {
+  const {
+    containerStyle
+  } = styles;
 
-  var permitTypes = [
-    'Commuter Zone A',
-    'Commuter Zone B',
-    'Commuter Zone C',
-    'Commuter Zone D',
-    'Commuter Zone L',
-    'Commuter Zone H',
-    'Night Commuter',
-    'Resident Permits'
+  const data = [
+    {title: '6PM-2AM', lots:['lot1', 'lot2', 'lot3', 'lot4', 'lot5', 'lot6', 'lot7', 'lot8', 'lot9']},
+    {title: '6PM-8AM', lots:['lot1', 'lot2']},
   ];
 
-  var campuses = ['College Ave','Livingston', 'Busch', 'Cook/Douglas'];
 
   return(
     <View>
-      <DropDown  title="Permit Type" list={permitTypes}/>
-      <DropDown  title="Campus" list={campuses}/>
+      <View style = {containerStyle}>
+        <DropDown  title="Permit Type" data={permitTypes}/>
+        <DropDown  title="Campus" data={campuses}/>
+      </View>
+      <List data = {data}/>
     </View>
   );
+};
+
+const styles = {
+  containerStyle:{
+    flexDirection : 'column',
+    alignItems: 'center',
+    marginTop: 30,
+    marginBottom: 30
+  }
 };
 
 AppRegistry.registerComponent('ruparking', () => App);
