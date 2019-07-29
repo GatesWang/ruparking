@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, ScrollView, Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import ListItem from './ListItem';
 
 class List extends Component {
@@ -17,23 +17,17 @@ class List extends Component {
     };
   }
 
-  toggle(title){
-    console.log(title);
-    var expanded = this.state.expanded;
-    expanded[title] = !expanded[title];
-    this.setState({expanded: expanded});
-  }
-
   renderListItems(){
     const listItems = this.state.data.map(data =>
       <ListItem
         title={data.title}
         data={data.data}
+        data2={data.data2}
       />
     );
 
     return (
-      <ScrollView>
+      <ScrollView style={{flex:1}}>
         {listItems}
       </ScrollView>
     );
