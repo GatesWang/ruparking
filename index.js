@@ -12,18 +12,18 @@ const App = () => {
   } = styles;
 
   const data = [
-    {title: '6PM-2AM', lots:['lot1', 'lot2', 'lot3', 'lot4', 'lot5', 'lot6', 'lot7', 'lot8', 'lot9']},
-    {title: '6PM-8AM', lots:['lot1', 'lot2']},
+    {title: '6PM-2AM', data:['lot1', 'lot2', 'lot3', 'lot4', 'lot5', 'lot6', 'lot7', 'lot8', 'lot9']},
+    {title: '6PM-8AM', data:['lot1', 'lot2']},
   ];
 
 
   return(
-    <View>
+    <View style={{flex:1}}>
       <View style = {containerStyle}>
         <DropDown  title="Permit Type" data={permitTypes}/>
         <DropDown  title="Campus" data={campuses}/>
       </View>
-      <List data = {data}/>
+      <List style={{flex:1}} data = {data}/>
     </View>
   );
 };
